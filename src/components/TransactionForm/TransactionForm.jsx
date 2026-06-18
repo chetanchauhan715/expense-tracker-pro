@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./TransactionForm.css";
 
-function TransactionForm (){
+function TransactionForm ( {onAddTransaction}){
 
     const [formData , setFormData] = useState ( {
         title:"",
@@ -20,9 +20,35 @@ function TransactionForm (){
         );
     }
 
+    function handleSubmit(e){
+        e.preventDefault();
+
+        if(Object.values(formData).some ((value)=> value.trim()==="")){
+            alert("Please Fill all filels.");
+            return;
+        }
+
+        onAddTransaction(formData);
+
+        setFormData({
+
+            title: "",
+        
+            amount: "",
+        
+            category: "",
+        
+            date: "",
+        
+            type: ""
+        
+        });
+        
+    }
+
     return(
         <section className="form">
-            <form>
+            <form className="form-input" onSubmit={handleSubmit}>
                 <input
                 type="text"
                 placeholder="Enter Title"
@@ -85,6 +111,10 @@ function TransactionForm (){
                     />
                     Expense
                 </label>
+
+                <button type="submit">
+                    Add Transaction
+                </button>
 
             </form>
         </section>
