@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import {  useEffect, useState } from 'react'
+import "./App.css";
 import Header from './components/Header/Header';
 import Dashboard from './components/Dashboard/Dashboard';
 import StatsCard from './components/Dashboard/StatsCard';
@@ -8,6 +9,22 @@ import TransactionList from './components/TransactionList/TransactionList';
 function App() {
 
   const [transactions , setTransactions] = useState([]);
+
+  useEffect( ()=> {
+    const savedTransactions = localStorage.getItem("transactions");
+    if(savedTransactions){
+      console.log("Loaded:", savedTransactions);
+      setTransactions(JSON.parse(savedTransactions));
+    }
+  } , []);
+
+  useEffect(() => {
+    if (transactions.length > 0) {
+      console.log("Saving:", transactions);
+      localStorage.setItem("transactions", JSON.stringify(transactions));
+    }
+  }, [transactions]);
+  
 
   function addTransaction(newTransaction){
     
@@ -28,29 +45,34 @@ function App() {
 
     setTransactions(updatedTrasactions);
   }
+
+  
  
   return (
 
-    <div>
+    <div className="main-container">
     
     <Header/>
 
     <Dashboard transactions={transactions}/>
 
 
-<div>
+<div className="middle-container">
+
+<div className="transactionForm-container">
     <TransactionForm 
     onAddTransaction ={addTransaction}
     />
-
     
 </div>
 
+<div className="transactionList-container">
 <TransactionList transactions={transactions}
                 onDeleteTransaction={delelteTransaction}
 />
+</div>
 
-    
+</div>
 
     </div>
   ) ;
