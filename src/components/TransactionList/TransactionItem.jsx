@@ -1,7 +1,10 @@
 import "./TransactionItem.css";
 
-function TransactionItem({transaction}){
+function TransactionItem({transaction , onDeleteTransaction}){
 
+    function handleDelete(){
+        onDeleteTransaction(transaction.id);
+    }
     return(
         <li className="transaction-item">
             <div className="left">
@@ -13,6 +16,8 @@ function TransactionItem({transaction}){
                <h3> {transaction.amount} </h3>
                <p> {transaction.date} </p>
             </div>
+
+            <button onClick={handleDelete}>Delete</button>
         </li>
     )
 }
