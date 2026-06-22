@@ -51,6 +51,19 @@ function App() {
     setEditingTransaction(transaction);
   }
 
+  function handleUpdate(updatedTransaction){
+    console.log(updatedTransaction);
+    const updatedTrasactions = transactions.map( (t)=> {
+      if(t.id === updatedTransaction.id){
+        return updatedTransaction;
+      }
+      return t;
+    });
+
+    setTransactions(updatedTrasactions);
+    setEditingTransaction(null);
+  }
+
   return (
     <div className="main-container">
       <Header />
@@ -62,7 +75,7 @@ function App() {
           <TransactionForm
             onAddTransaction={addTransaction}
             editingTransaction={editingTransaction}
-            // onUpdateTransaction={handleUpdate}
+            onUpdateTransaction={handleUpdate}
           />
         </div>
 
