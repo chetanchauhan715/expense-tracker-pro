@@ -6,6 +6,7 @@ import {
     CartesianGrid
   } from "recharts";
 
+  import "./Charts.css"
 
 function Charts({categoryStats}){
     
