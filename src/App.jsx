@@ -141,11 +141,23 @@ function App() {
   }
   
 
+  const today= new Date().toISOString().split("T")[0];
+  const startOfMonth = today.slice(0 , 8) + "01";
 
-  console.log(highestExpenes);
-  console.log(lowestExpense);
-  console.log(categoryStats);
-  console.log(transactions[0].date);
+  let thisMonthExpense = 0;
+  for(const transaction of expenseTransactions){
+    if(transaction.date >= startOfMonth && 
+        transaction.date <= today ){
+          thisMonthExpense += Number (transaction.amount);
+        }
+  }
+
+
+
+  // console.log(highestExpenes);
+  // console.log(lowestExpense);
+  // console.log(categoryStats);
+  // console.log(transactions[0].date);
  
 
 
@@ -203,6 +215,13 @@ function App() {
         </div>
       </section>
 
+      <section className="charts-section">
+  <Charts 
+    categoryStats={categoryStats}
+    expenseTotal={expenseTotal}
+    incomeTotal={incomeTotal}
+  />
+</section>
 
       <div className="middle-container">
         <div className="transactionForm-container">
