@@ -1,7 +1,7 @@
 import "./TransactionList.css";
 import TransactionItem from "./TransactionItem";
 
-function TransactionList({transactions}){
+function TransactionList({transactions , onDeleteTransaction , onEdit}){
     return(
         <section className="transaction-list">
             <ul>
@@ -10,6 +10,8 @@ function TransactionList({transactions}){
                     <TransactionItem 
                     key={transaction.id}
                     transaction={transaction}
+                    onDeleteTransaction={onDeleteTransaction}
+                    onEdit={onEdit}
                     />
                 ))
             }

@@ -1,6 +1,6 @@
 import "./TransactionItem.css";
 
-function TransactionItem({transaction , onDeleteTransaction}){
+function TransactionItem({transaction , onDeleteTransaction , onEdit}){
 
     function handleDelete(){
         onDeleteTransaction(transaction.id);
@@ -17,7 +17,13 @@ function TransactionItem({transaction , onDeleteTransaction}){
                <p> {transaction.date} </p>
             </div>
 
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={ ()=> onEdit(transaction)}>
+                Edit
+            </button>
+
+            <button onClick={ handleDelete}>
+                Delete
+            </button>
         </li>
     )
 }
