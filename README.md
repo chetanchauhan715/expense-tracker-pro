@@ -1,16 +1,118 @@
-# React + Vite
+# 💰 Expense Tracker Pro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Expense Tracker built with **React** that helps users manage income and expenses efficiently. The application supports adding, editing, deleting, searching, and sorting transactions while automatically calculating financial statistics. All data is stored locally using **Local Storage**, ensuring it persists even after refreshing the browser.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 https://chetan-expense-tracker.netlify.app/
 
-## React Compiler
+## 📸 Preview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<img width="963" height="634" alt="image" src="https://github.com/user-attachments/assets/05a9b16d-c24e-48ab-b9b3-0587632b6759" />
 
-## Expanding the ESLint configuration
+<img width="992" height="367" alt="image" src="https://github.com/user-attachments/assets/272713c8-2cde-4ede-a40d-82d0a22c7ac8" />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+---
+
+## ✨ Features
+
+* ➕ Add new income and expense transactions
+* ✏️ Edit existing transactions
+* 🗑️ Delete transactions
+* 🔍 Search transactions by title
+* 📅 Sort by latest, oldest, highest amount, or lowest amount
+* 💾 Local Storage support (data persists after refresh)
+* 📊 Dashboard showing:
+
+  * Total Balance
+  * Total Income
+  * Total Expense
+  * Total Transactions
+* 📈 Interactive Pie Chart for expense distribution
+* 📉 Bar Chart for category-wise comparison
+* 📱 Responsive layout for different screen sizes
+
+---
+
+## 🛠️ Tech Stack
+
+* React
+* JavaScript (ES6+)
+* CSS3
+* Recharts
+* Local Storage API
+* Vite
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+│
+├── components/
+│   ├── Header/
+│   ├── Dashboard/
+│   ├── Charts/
+│   ├── TransactionForm/
+│   ├── TransactionList/
+│
+├── App.jsx
+├── App.css
+└── main.jsx
+```
+
+---
+
+## 🧠 What I Learned
+
+Building this project helped me strengthen my understanding of:
+
+* React Components
+* Props
+* State Management (`useState`)
+* Side Effects (`useEffect`)
+* CRUD Operations
+* Conditional Rendering
+* List Rendering with `map()`
+* Array methods (`filter`, `reduce`)
+* Data visualization using Recharts
+* Local Storage
+* Component-based project structure
+
+---
+
+## 🔮 Future Improvements
+
+* User Authentication
+* Backend Integration (Node.js & Express)
+* Database Support (MongoDB)
+* Expense Categories Management
+* Monthly Analytics
+* Budget Tracking
+* Dark Mode
+* Export transactions as PDF/CSV
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/your-username/expense-tracker-pro.git
+
+cd expense-tracker-pro
+
+npm install
+
+npm run dev
+```
+
+---
+
+## 👨‍💻 Author
+
+**Chetan**
+
+Currently learning **Data Structures & Algorithms**, **React**, and **Full Stack Development**, with the goal of becoming a Backend-focused Full Stack Developer.
