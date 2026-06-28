@@ -1,31 +1,41 @@
 import "./TransactionItem.css";
 
-function TransactionItem({transaction , onDeleteTransaction , onEdit}){
+function TransactionItem({ transaction, onDeleteTransaction, onEdit }) {
 
-    function handleDelete(){
-        onDeleteTransaction(transaction.id);
-    }
-    return(
-        <li className="transaction-item">
-            <div className="left">
-              <h3>  {transaction.title} </h3>
-             <p>  {transaction.category} </p> 
-            </div>
+  function handleDelete() {
+    onDeleteTransaction(transaction.id);
+  }
 
-            <div className="right">
-               <h3> {transaction.amount} </h3>
-               <p> {transaction.date} </p>
-            </div>
+  return (
+    <li className="transaction-item">
 
-            <button onClick={ ()=> onEdit(transaction)}>
-                Edit
-            </button>
+      <div className="left">
+        <h3>{transaction.title}</h3>
+        <p>{transaction.category}</p>
+      </div>
 
-            <button onClick={ handleDelete}>
-                Delete
-            </button>
-        </li>
-    )
+      <div className="right">
+
+        <h3 className={transaction.type}>
+          ₹{transaction.amount}
+        </h3>
+
+        <p>{transaction.date}</p>
+
+        <div className="actions">
+          <button onClick={() => onEdit(transaction)}>
+            Edit
+          </button>
+
+          <button onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
+
+      </div>
+
+    </li>
+  );
 }
 
 export default TransactionItem;

@@ -2,7 +2,7 @@
     background-color: white;
     text-align: center;
     border-radius: 12px;
-    padding: 12px;
+    padding:24px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
     transition: transform 0.3s ease,
@@ -11,21 +11,25 @@
 }
 
 .stats-card:hover {
-    transform: translateY(-5px);
-
+    transform:translateY(-4px) scale(1.02);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 
 }
 
 .stats-card p{
-    font-size: 1.8rem;
-    font-weight: bold;
+    margin-top:12px;
+    margin-bottom:0;
+
+    font-size:32px;
+    font-weight:700;
+
+    color:#111827;
 }
 
 
-.stats-card h3 {
-    font-weight: 400;
-    font-size: 1rem;
-    color: #666;
-
+.stats-card h3{
+    margin:0;
+    color:#6b7280;
+    font-size:15px;
+    font-weight:500;
 }

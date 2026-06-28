@@ -5,13 +5,12 @@ body {
   }
 
 
-  .middle-container {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 20px;
-    align-items: start;
-  }
-
+  .middle-container{
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:24px;
+    align-items:start;
+}
 
 .main-container {
   max-width: 1200px;
@@ -22,6 +21,7 @@ body {
 
 
 .transactionForm-container {
+    /* width:100%; */
     background: white;
     padding: 20px;
     border-radius: 12px;
@@ -35,22 +35,31 @@ body {
     gap: 10px;
   }
 
-.controls {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    
-  }
+  .controls{
+    display:flex;
+    justify-content:center;
+    align-items:end;
+    gap:20px;
+    margin:30px 0;
+    flex-wrap:wrap;
+}
   
   .controls input,
   .controls select {
-    padding: 8px;
+    padding:10px 14px;
     border-radius: 6px;
     border: 1px solid #ddd;
   }
+
+.filtering,
+.sorting{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+.filtering input{
+  width:250px;
+}
 
   .charts-section {
     margin: 30px 0;
