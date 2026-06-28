@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import "./TransactionForm.css";
+import { useFormState } from "react-dom";
 
-function TransactionForm ( {onAddTransaction}){
+function TransactionForm ( {onAddTransaction , editingTransaction, onUpdateTransaction}){
 
     const [formData , setFormData] = useState ( {
         title:"",
         amount:"",
         category:"",
         date:"",
-        type:"expense"
+        type:""
     });
 
     function handleChange(e){
@@ -23,28 +24,35 @@ function TransactionForm ( {onAddTransaction}){
     function handleSubmit(e){
         e.preventDefault();
 
-        if(Object.values(formData).some ((value)=> value.trim()==="")){
+        if(Object.values(formData).some ((value)=> String(value).trim()==="")){
             alert("Please Fill all filels.");
             return;
         }
-
-        onAddTransaction(formData);
-
+        
+        if(editingTransaction){
+            onUpdateTransaction(formData);
+        } else {
+            onAddTransaction(formData);
+        }
+    
         setFormData({
-
             title: "",
-        
             amount: "",
-        
             category: "",
-        
             date: "",
-        
             type: ""
-        
         });
+    
+        
         
     }
+
+    useEffect( () => {
+        if(editingTransaction){
+            setFormData(editingTransaction);
+        }
+    } , [editingTransaction])
+    
 
     return(
         <section className="form">
@@ -90,6 +98,7 @@ function TransactionForm ( {onAddTransaction}){
                 onChange={handleChange}
                 />
 
+            <div className="type-buttons">
                 <label>
                 <input
                 type="radio"
@@ -112,8 +121,10 @@ function TransactionForm ( {onAddTransaction}){
                     Expense
                 </label>
 
+                </div>
+
                 <button type="submit">
-                    Add Transaction
+                    {editingTransaction ? "Update Transaction" : "Add Transaction"}
                 </button>
 
             </form>
